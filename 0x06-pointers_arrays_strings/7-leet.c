@@ -20,7 +20,7 @@ char *leet(char *str)
 				str[index1] = index2 + '0';
 		}
 
-		index1++
+		index1++;
 	}
 
 	return (str);
