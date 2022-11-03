@@ -2,7 +2,8 @@
 
 /**
  * _puts_recursion - prints a string, followed by a new line.
- * @s: The string to be printed.
+ * @s: The string to be printed
+ * Return: nothing
  */
 void _puts_recursion(char *s)
 {
@@ -11,7 +12,6 @@ void _puts_recursion(char *s)
 		_putchar(*s);
 		_put_recursion(s + 1);
 	}
-
 	else
 		_putchar('\n');
 }
