@@ -4,24 +4,26 @@
  *
  * Return: 0 on success
  */
-
 int main(void)
 {
-	int i, j;
+	int n, m;
 
-	for (i = 0; i < 9; i++)
+	for (n = 48; n <= 56; n++)
 	{
-		for (j = i + 1; j < 10; j++)
+		for (m = 49; m <= 57; m++)
 		{
-			if (i != j)
+			if (m > n)
 			{
-				putchar(i = '0');
-				putchar(j + '0');
+				putchar(n);
+				putchar(m);
+				if (n != 56 || m != 57)
+				{
+					putchar(',');
+					putchar(' ');
+				}
 			}
 		}
 	}
-
 	putchar('\n');
-
 	return (0);
 }
