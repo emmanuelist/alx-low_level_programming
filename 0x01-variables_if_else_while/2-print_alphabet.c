@@ -6,7 +6,7 @@
  * Description: program that prints the alphabet in lowercase,
  * followed by a new line.
  *
- * Retune: 0 on (success)
+ * Return: 0 on (success)
  */
 int main(void)
 {
