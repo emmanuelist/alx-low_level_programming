@@ -2,7 +2,7 @@
 
 /**
  * main - Entry point
- * Description: Program that prints the alphabet in lowecase, 
+ * Description: Program that prints the alphabet in lowecase,
  * and then in uppercase, followed by a new line
  *
  * Return: 0 on (success)
