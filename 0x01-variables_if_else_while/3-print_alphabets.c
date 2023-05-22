@@ -2,6 +2,11 @@
 
 /**
  * main - Entry point
+<<<<<<< HEAD
+=======
+ * Description: Program that prints the alphabet in lowecase, 
+ * and then in uppercase, followed by a new line
+>>>>>>> refs/remotes/origin/main
  *
  * Return: 0 on (success)
  */
