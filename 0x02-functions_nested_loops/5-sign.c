@@ -5,24 +5,29 @@
  * @n: The number to be checked.
  *
  * Return: 1 and prints + if n is greater than zero,
- * 		0 and prints 0 if is zero,
- * 		-1 and prints - if n is less than zero.
+ * 0 and prints 0 if is zero,
+ * -1 and prints - if n is less than zero.
  */
 int print_sign(int n)
 {
+	char sign;
+
 	if (n > 0)
 	{
-		putchar('+');
+		sign = '+';
+		putchar(sign);
 		return (1);
 	}
 	else if (n == 0)
 	{
-		putchar('0');
+		sign = '0';
+		putchar(sign);
 		return (0);
 	}
 	else
 	{
-		putchar('-');
+		sign = '-';
+		putchar(sign);
 		return (-1);
 	}
 }
