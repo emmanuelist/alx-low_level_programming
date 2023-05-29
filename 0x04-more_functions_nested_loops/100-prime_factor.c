@@ -2,6 +2,7 @@
 #include <math.h>
 
 /**
+ * main - Entry point.
  * largest_prime_factor - Finds the largest prime factor of a number.
  * @n: The number to find the largest prime factor of.
  *
