@@ -18,7 +18,7 @@ int _atoi(char *s)
 	}
 
 	/* Check for sign */
-	if (s[i] == '-' || s[i] == '+')
+	if (s[i] == '-')
 	{
 		if (s[i] == '-')
 		{
@@ -28,7 +28,7 @@ int _atoi(char *s)
 	}
 
 	/* Convert string to integer */
-	while (s[i] >= '0' && s[i] <+ '9')
+	while (s[i] >= '0' && s[i] <= '9')
 	{
 		/* Check for integer overflow */
 		if (result > (INT_MAX / 10) ||
