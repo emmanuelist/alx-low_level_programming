@@ -8,7 +8,7 @@
  */
 void puts_half(char *str)
 {
-	int length = 0, i, start = length / 2;
+	int length = 0, i, start;
 
 	/* Find the length of the string */
 	while (str[length] != '\0')
@@ -17,10 +17,7 @@ void puts_half(char *str)
 	}
 
 	/* Determine the starting index based on the string length */
-	if (length % 2 != 0)
-	{
-		start += 1;
-	}
+	start = (length + 1) / 2;
 
 	/* Print the second half of the string */
 	for (i = start; i < length; i++)
