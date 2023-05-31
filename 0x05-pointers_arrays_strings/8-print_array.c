@@ -5,7 +5,7 @@
  * print_array - Prints n elements of an array of intgers
  * followed by a new line.
  * @a: Pointer to the array of integers.
- * @b: Numbers of elements to be printed
+ * @n: Numbers of elements to be printed
  */
 void print_array(int *a, int n)
 {
@@ -17,7 +17,7 @@ void print_array(int *a, int n)
 		printf("%d", a[i]);
 
 		/* Print comma and space if it;s not the last element */
-		if (i != n -1)
+		if (i != n - 1)
 		{
 			printf(", ");
 		}
