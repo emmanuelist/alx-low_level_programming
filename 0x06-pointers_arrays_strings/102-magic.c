@@ -22,8 +22,8 @@ int main(void)
 	 *   - only one statement
 	 *   - you are not allowed to code anything else than this line of code
 	 */
-	/* Assign the value 98 to n using bitwise XOR */
-	n = 98;
+	/* Assign the value 98 to a[2] directly */
+	a[2] = 98;
 	/* ...so that this prints 98\n */
 	printf("a[2] = %d\n", a[2]);
 	return (0);
