@@ -12,7 +12,7 @@ int _atoi(char *s)
 	int sign = 1, result = 0, i = 0;
 
 	/* Skip leading whitspace */
-	while (s[i] == ' ')
+	while (s[i] == ' ' && s[i] != '\0')
 	{
 		i++;
 	}
