@@ -2,7 +2,6 @@
 #include <math.h>
 
 /**
- * main - Entry point.
  * largest_prime_factor - Finds the largest prime factor of a number.
  * @n: The number to find the largest prime factor of.
  *
@@ -10,29 +9,42 @@
  */
 long largest_prime_factor(long n)
 {
-	long i;
+	long i, largestFactor;
 
-	for (i = 2; i <= n; i++)
+	/* Check for factors of 2 */
+	while (n % 2 == 0)
 	{
-		if (n % i == 0)
+		largestFactor = 2;
+		n /= 2;
+	}
+
+	/* Check for factors of odd numbers */
+	for (i =3; i * i <= n; i += 2)
+	{
+		while (n % i == 0)
 		{
-			while (n % i == 0)
-				n = n / i;
+			largestFactor = i;
+			n /= i;
 		}
 	}
 
-	return (i - 1);
+	/* If the number itself is a prime number */
+	if (n > 2)
+		largestFactor = n;
+	return (largestFactor);
 }
 
+/**
+ * main - Entry point of the program
+ *
+ * Return: Always 0
+ */
 int main(void)
 {
-	long num = 612852475143;
-	long largest_factor;
+	long n = 612852475143;
+	long largestFactor = largest_prime_factor(n);
 
-	largest_factor = largest_prime_factor(num);
-
-	printf("%ld\n", largest_factor);
+	printf("The largesr prime factor of %ld is %ld\n", n, largestFactor);
 
 	return (0);
 }
-
