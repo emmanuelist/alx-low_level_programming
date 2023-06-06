@@ -13,39 +13,32 @@
 
 char *infinite_add(char *n1, char *n2, char *r, int size_r)
 {
-	int len1 = strlen(n1), len2 = strlen(n2), i, j;
+	int len1 = strlen(n1), len2 = strlen(n2);
 	int carry = 0;
-	int digit1;
-	int digit2;
 	int sum;
+	int i = 0;
 
-	/* Check if the result can be stored in r. */
-	if (size_r < len1 + len2 + 1)
-	{
+	if (len1 + 1 > size_r || len2 + 1 > size_r)
 		return (0);
-	}
 
-	/* Initialize the result buffer. */
-	for (i = 0; i < size_r; i++)
+	while (len1 > 0 || len2 > 0)
 	{
-		r[i] = '\0';
-	}
+		sum = carry;
+		if (len1 > 0)
+			sum += n1[--len1] - '0';
+		if (len2 > 0)
+			sum += n2[--len2] - '0';
 
-	/* Add the two numbers. */
-	for (i = len1 - 1, j = len2 - 1; i >= 0 || j >= 0; i--, j--)
-	{
-		digit1 = (i >= 0) ? n1[i] - '0' : 0;
-		digit2 = (j >= 0) ? n2[j] - '0' : 0;
-		sum  = digit1 + digit2 + carry;
-		r[i + j + 1] = (sum % 10) + '0';
+		r[i++] = sum % 10 + '0';
 		carry = sum / 10;
 	}
 
-	/* If there is any carry, append it to the result buffer. */
-	if (carry > 0)
-	{
-		r[size_r - 1] = carry  + '0';
-	}
+	if (carry)
+		r[i++] = carry + '0';
+
+	r[i] = '0';
+
+	reverse_string(r);
 
 	return (r);
 }
