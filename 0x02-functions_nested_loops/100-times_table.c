@@ -12,23 +12,48 @@ void print_times_table(int n)
 	int i, j, result;
 
 	if (n < 0 || n > 15)
-	{
-
 		return; /* Exit the function if n is out of range */
-	}
 
 	for (i = 0; i <= n; i++)
 	{
 		for (j = 0; j <= n; j++)
 		{
-			result = i * j;
+			_putchar('0'); /* Print the initial '0' in each row */
+
 			if (j != 0)
 			{
-				printf(", "); /* Separate numbers with  comm nd three spaces */
-			}
+				/* Print the comma and space before each number */
+				_putchar(',');
+				_putchar(' ');
 
-			printf("%-3d", result); /*Print the number left-aligned with a width of 3 chracters*/
+				result = i * j;
+
+				/* Handle the formatting based on the value of the product */
+				if (result < 10)
+				{
+					/* Print two space and the single-digit product */
+					_putchar(' ');
+					_putchar(' ');
+					_putchar(product + '0');
+				}
+				else if (product < 100)
+				{
+					/* Print a space, tens digit, and ones digit of the two digit-digit product */
+					_putchar(' ');
+					_putchar(product / 10 + '0');
+					_putchar(product % 10 + '0');
+				}
+				else
+				{
+					/* Print the hundred, tens, and ones digit of the three-digit product */
+					_putchar(product / 100 + '0');
+					_putchar((product / 10) % 10 + '0');
+					_putchar(product % 10 + '0');
+				}
+			}
 		}
-		printf("\n");
+
+		/* Move to the nest line after each row */
+		_putchar('\n');
 	}
 }
