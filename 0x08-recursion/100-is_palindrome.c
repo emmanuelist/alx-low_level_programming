@@ -1,4 +1,5 @@
 #include "main.h"
+#include <string.h>
 
 /**
  * s_len - calculates the length of  string.
@@ -6,56 +7,37 @@
  *
  * Return: length of string
  */
-int s_len(char *s)
-{
-	if (*s == '\0')
-	{
-		return (0);
-	}
-	else
-	{
-		return (1 + s_len(s + 1));
-	}
-}
 
-/**
- * pal - check if a string is a palindrome.
- * @s: original string
- * @i: initial point of recursion
- * @len: length of string
- *
- * Return: 1 if is palindrome otherwise 0.
- */
-int pal(char *s, int i, int len)
-{
-	if (*(s + 1) == *(s + len - 1 - i) && i == (len / 2))
-	{
-		return (1);
-	}
-	else if (*(s + i) != *(s + len - 1 - i))
-	{
-		return (0);
-	}
-	else
-	{
-		return (pal(s, i + 1, len));
-	}
-}
-
-/**
- * is_palindrome - check if the string is a palindrome ex ala.
- * @s: original string
- *
- * Return: 1 if is alindrome otherwise 0.
- */
 int is_palindrome(char *s)
 {
-	if (pal(s, 0, s_len(s)) == 1)
+	/* calculate the length of the string */
+	int len = strlen(s);
+
+	/* Initialize two pointers, one at the beginning and and one at the end */
+	int start = 0;
+	int end = len - 1;
+
+
+	/* Check for empty string (considered a palindrome */
+	if (len == 0)
 	{
 		return (1);
 	}
-	else
+
+	
+	/* Iterate until the two pointers meet or cross each other */
+	while (start < end)
 	{
-		return (0);
+		/* Compare the characters at the current positions */
+		if (s[start] != s[end])
+		{
+			return (0); /* Not a Palindrome */
+		}
+
+		/* Move the pointers closer to each other */
+		start++;
+		end--;
 	}
+
+		return (1); /* Palindrome */
 }
