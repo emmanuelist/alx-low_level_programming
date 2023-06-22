@@ -7,18 +7,18 @@
  *
  * Return: The largest prime factor of the number
  */
-long largest_prime_factor(long n)
+long int largest_prime_factor(long n)
 {
-	long i, largestFactor;
+	long i, largestFactor = -1;
 
-	/* Check for factors of 2 */
+	/* Divide the number by 2 until it is no longer divisible by 2 */
 	while (n % 2 == 0)
 	{
 		largestFactor = 2;
 		n /= 2;
 	}
 
-	/* Check for factors of odd numbers */
+	/* Check for factors starting from 3 (odd) */
 	for (i = 3; i * i <= n; i += 2)
 	{
 		while (n % i == 0)
@@ -28,9 +28,10 @@ long largest_prime_factor(long n)
 		}
 	}
 
-	/* If the number itself is a prime number */
+	/* If the remaining number is greater than 2, it is a prime factor */
 	if (n > 2)
 		largestFactor = n;
+
 	return (largestFactor);
 }
 
@@ -41,10 +42,10 @@ long largest_prime_factor(long n)
  */
 int main(void)
 {
-	long n = 612852475143;
-	long largestFactor = largest_prime_factor(n);
+	long int n = 612852475143;
+	long int largestFactor = largest_prime_factor(n);
 
-	printf("The largesr prime factor of %ld is %ld\n", n, largestFactor);
+	printf("%ld\n", largestFactor);
 
 	return (0);
 }
