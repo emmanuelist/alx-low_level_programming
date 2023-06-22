@@ -8,22 +8,30 @@
 
 int main(void)
 {
-	int i;
+	int num;
 
-	for (i = 1; i <= 100; i++)
+	for (num = 1; num <= 100; num++)
 	{
-		if (i % 3 == 0 && i % 5 == 0)
+		/* If number is divisible by both 3 and 5 */
+		if (num % 3 == 0 && num % 5 == 0)
+		{
 			printf("FizzBuzz ");
-		else if (i % 3 == 0)
+		}
+		else if (num % 3 == 0) /* If divisible by 3 */
+		{
 			printf("Fizz ");
-		else if (i % 5 == 0)
+		}
+		else if (num % 5 == 0) /* If divisible by 5 */
+		{
 			printf("Buzz ");
+		}
 		else
-			printf("%d ", i);
+		{
+			printf("%d ", num);
+		}
 	}
 
 	printf("\n");
 
 	return (0);
 }
-
