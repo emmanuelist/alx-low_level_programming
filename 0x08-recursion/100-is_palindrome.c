@@ -3,6 +3,27 @@
 #include <stdbool.h>
 
 /**
+ * is_palindrome - Check if a string is a palindrome
+ * @s: The string to check
+ *
+ * Return: 1 if the string is a palindrome, 0 otherwise
+ */
+bool is_palindrome_helper(const char *s, int start, int end);
+
+int is_palindrome(char *s)
+{
+	/* Calculate the length of the string */
+	int len = strlen(s);
+
+	/* Check for empty string (considered a palindrome) */
+	if (len == 0)
+		return (1);
+
+	/* Start the recursive helper function */
+	return (is_palindrome_helper(s, 0, len - 1) ? 1 : 0);
+}
+
+/**
  * is_palindrome_helper - Recursive helper function
  * to check if a string is a palindrome
  * @s: The string to check
@@ -11,7 +32,7 @@
  *
  * Return: true if the string is a palindrome, false otherwise
  */
-bool is_palindrome_helper(char *s, int start, int end)
+bool is_palindrome_helper(const char *s, int start, int end)
 {
 	/* Base case: when start and end pointers meet or cross each other */
 	if (start >= end)
@@ -28,21 +49,3 @@ bool is_palindrome_helper(char *s, int start, int end)
 	return (is_palindrome_helper(s, start + 1, end - 1));
 }
 
-/**
- * is_palindrome - Check if a string is a palindrome
- * @s: The string to check
- *
- * Return: 1 if the string is a palindrome, 0 otherwise
- */
-int is_palindrome(char *s)
-{
-	/* Calculate the length of the string */
-	int len = strlen(s);
-
-	/* Check for empty string (considered a palindrome) */
-	if (len == 0)
-		(return) 1;
-
-	/* Start the recursive helper function */
-	return (is_palindrome_helper(s, 0, len - 1) ? 1 : 0);
-}
