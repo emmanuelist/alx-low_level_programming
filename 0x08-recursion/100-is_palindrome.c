@@ -1,5 +1,6 @@
 /**
- * palindrome_recursive - Recursive helper function to check if a string is a palindrome.
+ * palindrome_recursive - Recursive helper function to check if
+ * a string is a palindrome.
  * @s: The string to be checked.
  * @start: The starting index of the current comparison.
  * @end: The ending index of the cureent comparison.
@@ -45,12 +46,12 @@ int calculate_length(char *str)
 
 int is_palindrome(char *s)
 {
-	int len =calculate_length(s);
+	int len = calculate_length(s);
 
 	/* Check if the string is empty */
 	if (len == 0)
 		return (1);
 
 	/* Call the recursive helper function with start and end indices */
-	return (palindrome_recursive(s, 0, len -1));
+	return (palindrome_recursive(s, 0, len - 1));
 }
