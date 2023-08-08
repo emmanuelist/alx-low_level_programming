@@ -13,7 +13,7 @@ int is_prime_number(int n)
 		return (0);
 
 	/* Check if n is divisible by any number less thn itself */
-	for ( i = 2; i < n; i++)
+	for (i = 2; i < n; i++)
 	{
 		if (n % i == 0)
 			return (0);
