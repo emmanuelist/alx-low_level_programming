@@ -1,72 +1,49 @@
 #include "main.h"
 #include <stdio.h>
 #include <stdlib.h>
-#include <ctype.h>
-#include <stdbool.h>
 
 /**
- * coinConverter - Helper function that does all the mathematics
- * @i: Passed in variable from main for calculations
- * Return: The number of coins needed minimum for the passed in variable
- */
-int coinConverter(int i)
-{
-	int count = 0;
-
-	while (i != 0)
-	{
-		if (i % 10 == 9 || i % 10 == 7)
-			i -= 2;
-		else if (i % 25 == 0)
-			i -= 25;
-		else if (i % 10 == 0)
-			i -= 10;
-		else if (i % 5 == 0)
-			i -= 5;
-		else if (i % 2 == 0)
-		{
-			if (i % 10 == 6)
-				i -= 1;
-			else
-				i -= 2;
-		}
-		else
-			i -= 1;
-
-		count++;
-	}
-
-	return (count);
-}
-
-/**
- * main - Takes in exactly one argument for minimum coin count
- * @argc: Number of command line arguments
- * @argv: Array name
- * Return: 0 if exactly 1 argument is passed into this program, 1 otherwise
+ * main - Entry point of the program
+ * @argc: The number of command line arguments
+ * @argv: An array of strings containing the arguments
+ * Return: 0 on success, 1 on error
  */
 int main(int argc, char *argv[])
 {
-	int i, coin;
-
-	coin = 0;
-
+	/* Check if we have exactly 1 argument */
 	if (argc != 2)
 	{
-		printf("Error\n");
+		printf("Oops! You need to provide an amount in cents.\n");
 		return (1);
 	}
 
-	i = atoi(argv[1]);
+	/* Convert the user's input into an integer */
+	int cents = atoi(argv[1]);
 
-	if (i < 0)
-		printf("0\n");
-	else
+	/* Check if the user tried to be tricky with a negative amount */
+	if (cents < 0)
 	{
-		coin = coinConverter(i);
-
-		printf("%d\n", coin);
+		printf("Hmm, can't make change for a negative amount. So, it's 0 cents.\n");
+		return (0);
 	}
+
+	/* These are the coins we have */
+	int coins[] = {25, 10, 5, 2, 1};
+	int numCoins = sizeof(coins) / sizeof(coins[0]);
+
+	int count = 0; /* Initialize the counter for coins used */
+
+	/* Let's figure out the coins needed */
+	int i;
+
+	for (i = 0; i < numCoins; i++)
+	{
+		count += cents / coins[i]; /* Count how many of this coin we can use */
+		cents %= coins[i]; /* Get the remaining amount after using this coin */
+	}
+
+	/* Print the result */
+	printf("You need the minimum of %d coins.\n", count);
 
 	return (0);
 }
