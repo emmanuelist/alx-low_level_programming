@@ -1,25 +1,44 @@
-#include "main.h"
-#include <stdio.h>
 #include <stdlib.h>
+#include "main.h"
 
 /**
- * simple_print_buffer - prints buffer in hexa
- * @buffer: the address of memory to print
- * @size: the size of the memory to print
+ * create_array - Creates an array of characters and
+ * fills it with a specific character.
+ * @size: The size of the array to create.
+ * @c: The character to fill the array with.
  *
- * Return: Nothing.
+ * Return: A pointer to the created array (Success), NULL (Error).
  */
 char *create_array(unsigned int size, char c)
 {
-  unsigned int i;
+	/**
+	 * Check if the requested size is 0, which is not allowed.
+	 */
+	if (size == 0)
+		return (NULL);
+	/**
+	 * Allocate memory for the array.
+	 */
+	char *array = (char *)malloc(sizeof(char) * size);
 
-  if (size == 0)
-      return (NULL);
+	/**
+	 * Check if memory allocation was successful.
+	 */
 
-  char *s = (char*)malloc(size * sizeof(char));
+	if (array == NULL)
+		return (NULL);
+	/**
+	 * Fill the array with the specified character.
+	 */
+	for (unsigned int i = 0; i < size; i++)
+	{
+		array[i] = c;
+	}
 
-  for (i = 0; i < size; i++)
-    s[i] = c;
+	/**
+	 * Add a null-terminating character to make it a valid string.
+	 */
+	array[size] = '\0';
 
-  return (s);
+	return (array);
 }
