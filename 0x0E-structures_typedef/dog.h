@@ -20,12 +20,10 @@ struct dog
 	char *owner;
 };
 
-/**
- * dog_t - typedef for struct dog
- */
-
+/* Typedef for struct for dog */
 typedef struct dog dog_t;
 
+/* Function prototype */
 void init_dog(struct dog *d, char *name, float age, char *owner);
 void print_dog(struct dog *d);
 dog_t *new_dog(char *name, float age, char *owner);
