@@ -37,7 +37,7 @@ Write a program that performs simple operations.
 - `operator` is one of the following:
 
 
-    -[] addition
+     `+`: addition
 
     `-`: subtraction
 
