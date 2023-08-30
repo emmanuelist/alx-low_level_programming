@@ -7,7 +7,7 @@
  */
 void __attribute__((constructor)) pre_main_function()
 {
-    printf("You're fatigued! However, you must permit");
-    printf(",\nI carry my dwelling on my dorsal side!\n");
+	printf("You're fatigued! However, you must permit");
+	printf(",\nI carry my dwelling on my dorsal side!\n");
 }
 
